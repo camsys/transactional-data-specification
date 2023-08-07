@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jaxb:bindings version="3.0"
+               xmlns:jaxb="https://jakarta.ee/xml/ns/jaxb"
+               xmlns:xjc="https://jakarta.ee/xml/ns/jaxb/xjc"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="https://jakarta.ee/xml/ns/jaxb https://jakarta.ee/xml/ns/jaxb/bindingschema_3_0.xsd">
+
+    <jaxb:globalBindings typesafeEnumMaxMembers="2000">
+        <jaxb:javaType xmlType="xsd:time" name="java.time.LocalTime"
+            parseMethod="com.camsys.adapter.TimeAdapter.unmarshal"
+            printMethod="com.camsys.adapter.TimeAdapter.marshal" />
+        <jaxb:javaType xmlType="xsd:dateTime" name="java.time.LocalDateTime"
+            parseMethod="com.camsys.adapter.DateTimeAdapter.unmarshal"
+            printMethod="com.camsys.adapter.DateTimeAdapter.marshal" />
+        <jaxb:javaType xmlType="xsd:date" name="java.time.LocalDate"
+            parseMethod="com.camsys.adapter.DateAdapter.unmarshal"
+            printMethod="com.camsys.adapter.DateAdapter.marshal" />
+    </jaxb:globalBindings>
+</jaxb:bindings>
