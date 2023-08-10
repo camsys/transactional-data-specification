@@ -79,6 +79,7 @@
           <xjbSources>
             <xjbSource>src/main/resources/schemas/xjb/global.xjb</xjbSource>
           </xjbSources>
+          <noGeneratedHeaderComments>true</noGeneratedHeaderComments>
         </configuration>
       </plugin>
       <plugin>

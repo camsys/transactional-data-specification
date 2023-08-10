@@ -466,12 +466,12 @@
           <xsd:documentation>Shall be of type WGS84.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="lat" type="xsd:float">
+      <xsd:element name="lat" type="xsd:double">
         <xsd:annotation>
           <xsd:documentation>See documentation in Use Cases.</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="long" type="xsd:float">
+      <xsd:element name="long" type="xsd:double">
         <xsd:annotation>
           <xsd:documentation>See documentation in Use Cases.</xsd:documentation>
         </xsd:annotation>
