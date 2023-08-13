@@ -20,6 +20,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *     &lt;extension base="{}tripRequestType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="preferredProvider" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="preferredProviderContact" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="customerInfo" type="{}customerInfoType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
@@ -32,6 +33,7 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "expeditedTripRequestType", propOrder = {
     "preferredProvider",
+    "preferredProviderContact",
     "customerInfo"
 })
 public class ExpeditedTripRequestType
@@ -40,6 +42,8 @@ public class ExpeditedTripRequestType
 
     @XmlElement(required = true)
     protected String preferredProvider;
+    @XmlElement(required = true)
+    protected String preferredProviderContact;
     @XmlElement(required = true)
     protected CustomerInfoType customerInfo;
 
@@ -65,6 +69,30 @@ public class ExpeditedTripRequestType
      */
     public void setPreferredProvider(String value) {
         this.preferredProvider = value;
+    }
+
+    /**
+     * Gets the value of the preferredProviderContact property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getPreferredProviderContact() {
+        return preferredProviderContact;
+    }
+
+    /**
+     * Sets the value of the preferredProviderContact property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setPreferredProviderContact(String value) {
+        this.preferredProviderContact = value;
     }
 
     /**

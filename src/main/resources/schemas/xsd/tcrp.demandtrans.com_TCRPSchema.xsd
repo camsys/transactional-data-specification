@@ -71,6 +71,7 @@
       <xsd:extension base="tripRequestType">
         <xsd:sequence>
           <xsd:element name="preferredProvider" type="xsd:string"/>
+          <xsd:element name="preferredProviderContact" type="xsd:string"/>
           <xsd:element name="customerInfo" type="customerInfoType"/>
         </xsd:sequence>
       </xsd:extension>
@@ -162,7 +163,6 @@
           <xsd:element name="paymentType" type="paymentTypeList"  minOccurs="0"/>
           <xsd:element name="notesForDriver" type="xsd:string"  minOccurs="0"/>
           <xsd:element name="emailAddress" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="customerSimpleAddress" type="simpleAddress"  minOccurs="0"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>

@@ -101,7 +101,7 @@ public class ClientOrderConfirmationType
      * <p>
      * You are getting this "catch-all" property because of the following reason: 
      * The field name "TripRequestId" is used by two different parts of a schema. See: 
-     * line 107 of file:/Users/lenny/projects/transactional-data-specification/src/main/resources/schemas/xsd/tcrp.demandtrans.com_TCRPSchema.xsd
+     * line 108 of file:/Users/lenny/projects/transactional-data-specification/src/main/resources/schemas/xsd/tcrp.demandtrans.com_TCRPSchema.xsd
      * line 27 of file:/Users/lenny/projects/transactional-data-specification/src/main/resources/schemas/xsd/tcrp.demandtrans.com_TCRPSchema.xsd
      * <p>
      * To get rid of this property, apply a property customization to one 

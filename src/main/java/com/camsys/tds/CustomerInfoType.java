@@ -45,7 +45,6 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="paymentType" type="{}paymentTypeList" minOccurs="0"/&gt;
  *         &lt;element name="notesForDriver" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="emailAddress" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="customerSimpleAddress" type="{}simpleAddress" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -74,8 +73,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "customerId",
     "paymentType",
     "notesForDriver",
-    "emailAddress",
-    "customerSimpleAddress"
+    "emailAddress"
 })
 public class CustomerInfoType
     extends TelegramMessageType
@@ -104,7 +102,6 @@ public class CustomerInfoType
     protected List<PaymentTypeEnum> paymentType;
     protected String notesForDriver;
     protected String emailAddress;
-    protected SimpleAddress customerSimpleAddress;
 
     /**
      * Gets the value of the customerFirstName property.
@@ -565,30 +562,6 @@ public class CustomerInfoType
      */
     public void setEmailAddress(String value) {
         this.emailAddress = value;
-    }
-
-    /**
-     * Gets the value of the customerSimpleAddress property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link SimpleAddress }
-     *     
-     */
-    public SimpleAddress getCustomerSimpleAddress() {
-        return customerSimpleAddress;
-    }
-
-    /**
-     * Sets the value of the customerSimpleAddress property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link SimpleAddress }
-     *     
-     */
-    public void setCustomerSimpleAddress(SimpleAddress value) {
-        this.customerSimpleAddress = value;
     }
 
 }
