@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsd:schema xmlns:tcrp="http://www.tcrp.gov/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
 
   <xsd:element name="tripRequest" type="tripRequestType"/>
@@ -186,6 +186,9 @@
         <xsd:attribute name="vehicleNumber" type="xsd:string" use="optional"/>
         <xsd:attribute name="driverId" type="xsd:string" use="optional"/>
         <xsd:attribute name="vehicleInformation" type="xsd:string" use="optional"/>
+        <xsd:attribute name="customerId" type="xsd:string" use="optional"/>
+        <xsd:attribute name="provider" type="xsd:string" use="optional"/>
+        <xsd:attribute name="providerContact" type="xsd:string" use="optional"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>

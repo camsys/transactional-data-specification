@@ -33,6 +33,9 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;attribute name="vehicleNumber" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="driverId" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="vehicleInformation" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="customerId" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="provider" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="providerContact" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -70,6 +73,12 @@ public class ProviderOrderConfirmationType
     protected String driverId;
     @XmlAttribute(name = "vehicleInformation")
     protected String vehicleInformation;
+    @XmlAttribute(name = "customerId")
+    protected String customerId;
+    @XmlAttribute(name = "provider")
+    protected String provider;
+    @XmlAttribute(name = "providerContact")
+    protected String providerContact;
 
     /**
      * Gets the value of the scheduledPickupTime property.
@@ -319,6 +328,78 @@ public class ProviderOrderConfirmationType
      */
     public void setVehicleInformation(String value) {
         this.vehicleInformation = value;
+    }
+
+    /**
+     * Gets the value of the customerId property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    /**
+     * Sets the value of the customerId property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setCustomerId(String value) {
+        this.customerId = value;
+    }
+
+    /**
+     * Gets the value of the provider property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getProvider() {
+        return provider;
+    }
+
+    /**
+     * Sets the value of the provider property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setProvider(String value) {
+        this.provider = value;
+    }
+
+    /**
+     * Gets the value of the providerContact property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getProviderContact() {
+        return providerContact;
+    }
+
+    /**
+     * Sets the value of the providerContact property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setProviderContact(String value) {
+        this.providerContact = value;
     }
 
 }
