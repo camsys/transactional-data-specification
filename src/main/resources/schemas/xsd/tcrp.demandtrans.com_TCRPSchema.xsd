@@ -175,6 +175,11 @@
     <xsd:complexContent>
       <xsd:extension base="telegramMessageType">
         <xsd:sequence>
+          <xsd:element name="tripScheduled" type="xsd:boolean" minOccurs="0">
+            <xsd:annotation>
+              <xsd:documentation>Whether or not trip was able to be scheduled.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
           <xsd:element name="scheduledPickupTime" type="time"/>
           <xsd:element name="scheduledPickupPoint" type="addressType"/>
           <xsd:element name="scheduledDropoffPoint" type="addressType"/>

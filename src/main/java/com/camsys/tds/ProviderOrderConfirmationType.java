@@ -22,6 +22,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{}telegramMessageType"&gt;
  *       &lt;sequence&gt;
+ *         &lt;element name="tripScheduled" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
  *         &lt;element name="scheduledPickupTime" type="{}time"/&gt;
  *         &lt;element name="scheduledPickupPoint" type="{}addressType"/&gt;
  *         &lt;element name="scheduledDropoffPoint" type="{}addressType"/&gt;
@@ -45,6 +46,7 @@ import jakarta.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "providerOrderConfirmationType", propOrder = {
+    "tripScheduled",
     "scheduledPickupTime",
     "scheduledPickupPoint",
     "scheduledDropoffPoint",
@@ -54,6 +56,7 @@ public class ProviderOrderConfirmationType
     extends TelegramMessageType
 {
 
+    protected Boolean tripScheduled;
     @XmlElement(required = true)
     protected Time scheduledPickupTime;
     @XmlElement(required = true)
@@ -79,6 +82,30 @@ public class ProviderOrderConfirmationType
     protected String provider;
     @XmlAttribute(name = "providerContact")
     protected String providerContact;
+
+    /**
+     * Gets the value of the tripScheduled property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Boolean }
+     *     
+     */
+    public Boolean isTripScheduled() {
+        return tripScheduled;
+    }
+
+    /**
+     * Sets the value of the tripScheduled property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Boolean }
+     *     
+     */
+    public void setTripScheduled(Boolean value) {
+        this.tripScheduled = value;
+    }
 
     /**
      * Gets the value of the scheduledPickupTime property.
