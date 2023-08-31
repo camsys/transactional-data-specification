@@ -20,7 +20,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *     &lt;extension base="{}tripRequestType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="preferredProvider" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="preferredProviderContact" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="preferredProviderContact" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="customerInfo" type="{}customerInfoType"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
@@ -42,7 +42,6 @@ public class ExpeditedTripRequestType
 
     @XmlElement(required = true)
     protected String preferredProvider;
-    @XmlElement(required = true)
     protected String preferredProviderContact;
     @XmlElement(required = true)
     protected CustomerInfoType customerInfo;

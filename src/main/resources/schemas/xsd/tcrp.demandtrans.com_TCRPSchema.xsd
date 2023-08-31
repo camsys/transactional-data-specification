@@ -71,7 +71,7 @@
       <xsd:extension base="tripRequestType">
         <xsd:sequence>
           <xsd:element name="preferredProvider" type="xsd:string"/>
-          <xsd:element name="preferredProviderContact" type="xsd:string"/>
+          <xsd:element name="preferredProviderContact" type="xsd:string" minOccurs="0"/>
           <xsd:element name="customerInfo" type="customerInfoType"/>
         </xsd:sequence>
       </xsd:extension>
@@ -183,6 +183,7 @@
           <xsd:element name="scheduledPickupTime" type="time"/>
           <xsd:element name="scheduledPickupPoint" type="addressType"/>
           <xsd:element name="scheduledDropoffPoint" type="addressType"/>
+          <xsd:element name="scheduledDropoffTime" type="time" minOccurs="0"/>
           <xsd:element name="transferPoint" type="addressType" minOccurs="0"/>
         </xsd:sequence>
         <xsd:attribute name="paymentType" type="paymentTypeList" use="optional"/>

@@ -26,6 +26,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *         &lt;element name="scheduledPickupTime" type="{}time"/&gt;
  *         &lt;element name="scheduledPickupPoint" type="{}addressType"/&gt;
  *         &lt;element name="scheduledDropoffPoint" type="{}addressType"/&gt;
+ *         &lt;element name="scheduledDropoffTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="transferPoint" type="{}addressType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="paymentType" type="{}paymentTypeList" /&gt;
@@ -50,6 +51,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "scheduledPickupTime",
     "scheduledPickupPoint",
     "scheduledDropoffPoint",
+    "scheduledDropoffTime",
     "transferPoint"
 })
 public class ProviderOrderConfirmationType
@@ -63,6 +65,7 @@ public class ProviderOrderConfirmationType
     protected AddressType scheduledPickupPoint;
     @XmlElement(required = true)
     protected AddressType scheduledDropoffPoint;
+    protected Time scheduledDropoffTime;
     protected AddressType transferPoint;
     @XmlAttribute(name = "paymentType")
     protected List<PaymentTypeEnum> paymentType;
@@ -177,6 +180,30 @@ public class ProviderOrderConfirmationType
      */
     public void setScheduledDropoffPoint(AddressType value) {
         this.scheduledDropoffPoint = value;
+    }
+
+    /**
+     * Gets the value of the scheduledDropoffTime property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Time }
+     *     
+     */
+    public Time getScheduledDropoffTime() {
+        return scheduledDropoffTime;
+    }
+
+    /**
+     * Sets the value of the scheduledDropoffTime property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Time }
+     *     
+     */
+    public void setScheduledDropoffTime(Time value) {
+        this.scheduledDropoffTime = value;
     }
 
     /**
