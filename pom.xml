@@ -24,9 +24,7 @@
   </dependencies>
 
   <scm>
-        <connection>scm:git:https://github.com/camsys/transactional-data-specification.git</connection>
-        <developerConnection>scm:git:https://github.com/camsys/transactional-data-specification.git</developerConnection>
-        <url>https://github.com/camsys/transactional-data-specification</url>
+     <url>http://github.com/camsys/transactional-data-specification</url>
   </scm>
 
   <distributionManagement>
