@@ -25,7 +25,7 @@
 
   <scm>
         <connection>scm:git:http://github.com/camsys/transactional-data-specification.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:camsys/transactional-data-specification.git</developerConnection>
+        <developerConnection>scm:git:ssh://git@github.com/camsys/transactional-data-specification.git</developerConnection>
         <url>http://github.com/camsys/transactional-data-specification</url>
   </scm>
 
