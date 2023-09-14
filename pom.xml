@@ -23,6 +23,12 @@
 
   </dependencies>
 
+  <scm>
+        <connection>scm:git:https://github.com/camsys/transactional-data-specification.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:camsys/transactional-data-specification.git</developerConnection>
+        <url>https://github.com/camsys/transactional-data-specification</url>
+  </scm>
+
   <distributionManagement>
     <repository>
       <id>releases-camsys-public-repo</id>
