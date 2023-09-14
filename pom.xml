@@ -24,8 +24,8 @@
   </dependencies>
 
   <scm>
-        <connection>scm:git:https://github.com/camsys/transactional-data-specification.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:camsys/transactional-data-specification.git</developerConnection>
+        <connection>scm:git:http://github.com/camsys/transactional-data-specification.git</connection>
+        <developerConnection>scm:git:http://github.com/camsys/transactional-data-specification.git</developerConnection>
         <url>http://github.com/camsys/transactional-data-specification</url>
   </scm>
 
