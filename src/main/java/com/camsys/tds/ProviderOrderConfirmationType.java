@@ -28,6 +28,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *         &lt;element name="scheduledDropoffPoint" type="{}addressType"/&gt;
  *         &lt;element name="scheduledDropoffTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="transferPoint" type="{}addressType" minOccurs="0"/&gt;
+ *         &lt;element name="provider" type="{}providerType" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="paymentType" type="{}paymentTypeList" /&gt;
  *       &lt;attribute name="fareAmount" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
@@ -36,8 +37,6 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;attribute name="driverId" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="vehicleInformation" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="customerId" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="provider" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="providerContact" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -52,7 +51,8 @@ import jakarta.xml.bind.annotation.XmlType;
     "scheduledPickupPoint",
     "scheduledDropoffPoint",
     "scheduledDropoffTime",
-    "transferPoint"
+    "transferPoint",
+    "provider"
 })
 public class ProviderOrderConfirmationType
     extends TelegramMessageType
@@ -67,6 +67,7 @@ public class ProviderOrderConfirmationType
     protected AddressType scheduledDropoffPoint;
     protected Time scheduledDropoffTime;
     protected AddressType transferPoint;
+    protected ProviderType provider;
     @XmlAttribute(name = "paymentType")
     protected List<PaymentTypeEnum> paymentType;
     @XmlAttribute(name = "fareAmount")
@@ -81,10 +82,6 @@ public class ProviderOrderConfirmationType
     protected String vehicleInformation;
     @XmlAttribute(name = "customerId")
     protected String customerId;
-    @XmlAttribute(name = "provider")
-    protected String provider;
-    @XmlAttribute(name = "providerContact")
-    protected String providerContact;
 
     /**
      * Gets the value of the tripScheduled property.
@@ -228,6 +225,30 @@ public class ProviderOrderConfirmationType
      */
     public void setTransferPoint(AddressType value) {
         this.transferPoint = value;
+    }
+
+    /**
+     * Gets the value of the provider property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ProviderType }
+     *     
+     */
+    public ProviderType getProvider() {
+        return provider;
+    }
+
+    /**
+     * Sets the value of the provider property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link ProviderType }
+     *     
+     */
+    public void setProvider(ProviderType value) {
+        this.provider = value;
     }
 
     /**
@@ -406,54 +427,6 @@ public class ProviderOrderConfirmationType
      */
     public void setCustomerId(String value) {
         this.customerId = value;
-    }
-
-    /**
-     * Gets the value of the provider property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getProvider() {
-        return provider;
-    }
-
-    /**
-     * Sets the value of the provider property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setProvider(String value) {
-        this.provider = value;
-    }
-
-    /**
-     * Gets the value of the providerContact property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getProviderContact() {
-        return providerContact;
-    }
-
-    /**
-     * Sets the value of the providerContact property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setProviderContact(String value) {
-        this.providerContact = value;
     }
 
 }

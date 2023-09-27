@@ -245,6 +245,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ProviderType }
+     * 
+     */
+    public ProviderType createProviderType() {
+        return new ProviderType();
+    }
+
+    /**
      * Create an instance of {@link AddressType.IdStreet }
      * 
      */
