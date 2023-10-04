@@ -7,8 +7,10 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -76,9 +78,18 @@ public class TripRequestType
     protected Time dropoffTime;
     protected Time pickupWindowStartTime;
     protected Time pickupWindowEndTime;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean detoursPermissible;
     protected Time negotiatedPickupTime;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean hardConstraintOnPickupTime;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean hardConstraintOnDropoffTime;
     @XmlAttribute(name = "specialAttributes")
     protected List<SpecialAttributesEnum> specialAttributes;
@@ -260,7 +271,7 @@ public class TripRequestType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isDetoursPermissible() {
@@ -272,7 +283,7 @@ public class TripRequestType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setDetoursPermissible(Boolean value) {
@@ -308,7 +319,7 @@ public class TripRequestType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isHardConstraintOnPickupTime() {
@@ -320,7 +331,7 @@ public class TripRequestType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setHardConstraintOnPickupTime(Boolean value) {
@@ -332,7 +343,7 @@ public class TripRequestType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isHardConstraintOnDropoffTime() {
@@ -344,7 +355,7 @@ public class TripRequestType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setHardConstraintOnDropoffTime(Boolean value) {

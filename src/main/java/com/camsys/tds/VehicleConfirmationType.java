@@ -5,7 +5,9 @@ import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -68,8 +70,12 @@ public class VehicleConfirmationType
     @XmlAttribute(name = "largeWheelchairSpacePoints")
     protected BigInteger largeWheelchairSpacePoints;
     @XmlAttribute(name = "hasRamp")
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean hasRamp;
     @XmlAttribute(name = "hasLift")
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean hasLift;
     @XmlAttribute(name = "standardWheelchairSpacePoints")
     protected BigInteger standardWheelchairSpacePoints;
@@ -263,7 +269,7 @@ public class VehicleConfirmationType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isHasRamp() {
@@ -275,7 +281,7 @@ public class VehicleConfirmationType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setHasRamp(Boolean value) {
@@ -287,7 +293,7 @@ public class VehicleConfirmationType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isHasLift() {
@@ -299,7 +305,7 @@ public class VehicleConfirmationType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setHasLift(Boolean value) {

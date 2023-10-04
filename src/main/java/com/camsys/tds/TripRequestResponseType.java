@@ -6,8 +6,10 @@ import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -22,7 +24,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{}telegramMessageType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="tripAvailable" type="{http://www.w3.org/2001/XMLSchema}boolean" minOccurs="0"/&gt;
+ *         &lt;element name="tripAvailable" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *         &lt;element name="scheduledPickupTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="scheduledPickupPoint" type="{}addressType" minOccurs="0"/&gt;
  *         &lt;element name="scheduledDropoffPoint" type="{}addressType" minOccurs="0"/&gt;
@@ -50,6 +52,9 @@ public class TripRequestResponseType
     extends TelegramMessageType
 {
 
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean tripAvailable;
     protected Time scheduledPickupTime;
     protected AddressType scheduledPickupPoint;
@@ -68,7 +73,7 @@ public class TripRequestResponseType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isTripAvailable() {
@@ -80,7 +85,7 @@ public class TripRequestResponseType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setTripAvailable(Boolean value) {

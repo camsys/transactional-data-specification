@@ -7,7 +7,9 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -86,6 +88,9 @@ public class TripTaskCompletionType
     protected Time performedPickupTime;
     protected AddressType performedDropoffPoint;
     protected Time performedDropoffTime;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean detoursPermissible;
     protected AddressType transferPoint;
     @XmlAttribute(name = "paymentType")
@@ -406,7 +411,7 @@ public class TripTaskCompletionType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isDetoursPermissible() {
@@ -418,7 +423,7 @@ public class TripTaskCompletionType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setDetoursPermissible(Boolean value) {

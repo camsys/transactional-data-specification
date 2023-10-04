@@ -15,8 +15,8 @@
         <jaxb:javaType xmlType="xsd:date" name="java.time.LocalDate"
             parseMethod="com.camsys.adapter.DateAdapter.unmarshal"
             printMethod="com.camsys.adapter.DateAdapter.marshal" />
-        <jaxb:javaType xmlType="xsd:date" name="java.time.LocalDate"
-                    parseMethod="com.camsys.adapter.DateAdapter.unmarshal"
-                    printMethod="com.camsys.adapter.DateAdapter.marshal" />
+        <jaxb:javaType name="java.lang.Boolean" xmlType="xsd:boolean"
+            parseMethod="java.lang.Boolean.valueOf"
+            printMethod="java.lang.Boolean.toString"/>
     </jaxb:globalBindings>
 </jaxb:bindings>

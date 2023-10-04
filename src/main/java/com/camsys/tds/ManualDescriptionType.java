@@ -6,6 +6,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -46,15 +47,23 @@ public class ManualDescriptionType {
     protected IdType idActionText;
     protected Time textTimestamp;
     @XmlAttribute(name = "sendtoInvoice", required = true)
-    protected boolean sendtoInvoice;
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean sendtoInvoice;
     @XmlAttribute(name = "sendtoVehicle", required = true)
-    protected boolean sendtoVehicle;
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean sendtoVehicle;
     @XmlAttribute(name = "sendtoOperator", required = true)
-    protected boolean sendtoOperator;
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean sendtoOperator;
     @XmlAttribute(name = "manualText", required = true)
     protected String manualText;
     @XmlAttribute(name = "vehicleConfirmation", required = true)
-    protected boolean vehicleConfirmation;
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean vehicleConfirmation;
     @XmlAttribute(name = "sendingOperator")
     @XmlSchemaType(name = "anySimpleType")
     protected String sendingOperator;
@@ -110,48 +119,72 @@ public class ManualDescriptionType {
     /**
      * Gets the value of the sendtoInvoice property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isSendtoInvoice() {
+    public Boolean isSendtoInvoice() {
         return sendtoInvoice;
     }
 
     /**
      * Sets the value of the sendtoInvoice property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setSendtoInvoice(boolean value) {
+    public void setSendtoInvoice(Boolean value) {
         this.sendtoInvoice = value;
     }
 
     /**
      * Gets the value of the sendtoVehicle property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isSendtoVehicle() {
+    public Boolean isSendtoVehicle() {
         return sendtoVehicle;
     }
 
     /**
      * Sets the value of the sendtoVehicle property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setSendtoVehicle(boolean value) {
+    public void setSendtoVehicle(Boolean value) {
         this.sendtoVehicle = value;
     }
 
     /**
      * Gets the value of the sendtoOperator property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isSendtoOperator() {
+    public Boolean isSendtoOperator() {
         return sendtoOperator;
     }
 
     /**
      * Sets the value of the sendtoOperator property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setSendtoOperator(boolean value) {
+    public void setSendtoOperator(Boolean value) {
         this.sendtoOperator = value;
     }
 
@@ -182,16 +215,24 @@ public class ManualDescriptionType {
     /**
      * Gets the value of the vehicleConfirmation property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isVehicleConfirmation() {
+    public Boolean isVehicleConfirmation() {
         return vehicleConfirmation;
     }
 
     /**
      * Sets the value of the vehicleConfirmation property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setVehicleConfirmation(boolean value) {
+    public void setVehicleConfirmation(Boolean value) {
         this.vehicleConfirmation = value;
     }
 

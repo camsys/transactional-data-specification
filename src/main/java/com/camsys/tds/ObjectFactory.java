@@ -6,6 +6,7 @@ import javax.xml.namespace.QName;
 import jakarta.xml.bind.JAXBElement;
 import jakarta.xml.bind.annotation.XmlElementDecl;
 import jakarta.xml.bind.annotation.XmlRegistry;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -581,6 +582,7 @@ public class ObjectFactory {
      *     the new instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      */
     @XmlElementDecl(namespace = "", name = "detoursPermissible", scope = ClientOrderConfirmationType.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
     public JAXBElement<Boolean> createClientOrderConfirmationTypeDetoursPermissible(Boolean value) {
         return new JAXBElement<Boolean>(_ClientOrderConfirmationTypeDetoursPermissible_QNAME, Boolean.class, ClientOrderConfirmationType.class, value);
     }
@@ -607,6 +609,7 @@ public class ObjectFactory {
      *     the new instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      */
     @XmlElementDecl(namespace = "", name = "hardConstraintOnPickupTime", scope = ClientOrderConfirmationType.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
     public JAXBElement<Boolean> createClientOrderConfirmationTypeHardConstraintOnPickupTime(Boolean value) {
         return new JAXBElement<Boolean>(_ClientOrderConfirmationTypeHardConstraintOnPickupTime_QNAME, Boolean.class, ClientOrderConfirmationType.class, value);
     }
@@ -620,6 +623,7 @@ public class ObjectFactory {
      *     the new instance of {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      */
     @XmlElementDecl(namespace = "", name = "hardConstraintOnDropoffTime", scope = ClientOrderConfirmationType.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
     public JAXBElement<Boolean> createClientOrderConfirmationTypeHardConstraintOnDropoffTime(Boolean value) {
         return new JAXBElement<Boolean>(_ClientOrderConfirmationTypeHardConstraintOnDropoffTime_QNAME, Boolean.class, ClientOrderConfirmationType.class, value);
     }

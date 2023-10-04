@@ -4,8 +4,10 @@ package com.camsys.tds;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlSeeAlso;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -51,6 +53,8 @@ public class IdType {
     @XmlAttribute(name = "id", required = true)
     protected String id;
     @XmlAttribute(name = "unique")
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean unique;
 
     /**
@@ -106,12 +110,12 @@ public class IdType {
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public boolean isUnique() {
         if (unique == null) {
-            return true;
+            return new Adapter1().unmarshal("true");
         } else {
             return unique;
         }
@@ -122,7 +126,7 @@ public class IdType {
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setUnique(Boolean value) {

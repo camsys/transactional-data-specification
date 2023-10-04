@@ -87,6 +87,9 @@ public class CustomerInfoType
     protected BigInteger customerMobilePhone;
     protected AddressType customerBillingAddress;
     protected String fundingEntityBillingInformation;
+    @XmlElement(type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean fundingType;
     protected String gender;
     protected String caregiverContactInformation;
@@ -94,7 +97,7 @@ public class CustomerInfoType
     protected String customerEmergencyContactName;
     protected String requiredCareComments;
     @XmlElement(type = String.class)
-    @XmlJavaTypeAdapter(Adapter3 .class)
+    @XmlJavaTypeAdapter(Adapter4 .class)
     @XmlSchemaType(name = "date")
     protected LocalDate dateOfBirth;
     protected String customerId;
@@ -300,7 +303,7 @@ public class CustomerInfoType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isFundingType() {
@@ -312,7 +315,7 @@ public class CustomerInfoType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setFundingType(Boolean value) {

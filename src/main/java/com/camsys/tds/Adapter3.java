@@ -1,20 +1,20 @@
 
 package com.camsys.tds;
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 import jakarta.xml.bind.annotation.adapters.XmlAdapter;
 
 public class Adapter3
-    extends XmlAdapter<String, LocalDate>
+    extends XmlAdapter<String, LocalTime>
 {
 
 
-    public LocalDate unmarshal(String value) {
-        return (com.camsys.adapter.DateAdapter.unmarshal(value));
+    public LocalTime unmarshal(String value) {
+        return (com.camsys.adapter.TimeAdapter.unmarshal(value));
     }
 
-    public String marshal(LocalDate value) {
-        return (com.camsys.adapter.DateAdapter.marshal(value));
+    public String marshal(LocalTime value) {
+        return (com.camsys.adapter.TimeAdapter.marshal(value));
     }
 
 }

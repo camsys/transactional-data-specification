@@ -46,7 +46,7 @@ public class Time {
     @XmlAttribute(name = "timeZoneIdentifer")
     protected String timeZoneIdentifer;
     @XmlAttribute(name = "time", required = true)
-    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlJavaTypeAdapter(Adapter2 .class)
     @XmlSchemaType(name = "dateTime")
     protected LocalDateTime time;
     @XmlAttribute(name = "dwellTime")

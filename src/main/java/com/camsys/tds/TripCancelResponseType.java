@@ -7,6 +7,7 @@ import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -45,7 +46,10 @@ public class TripCancelResponseType
 
     @XmlElement(required = true)
     protected Time cancellationTime;
-    protected boolean cancellationApproved;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean cancellationApproved;
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected RequestOriginEnum cancellationRequestOrigin;
@@ -79,16 +83,24 @@ public class TripCancelResponseType
     /**
      * Gets the value of the cancellationApproved property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isCancellationApproved() {
+    public Boolean isCancellationApproved() {
         return cancellationApproved;
     }
 
     /**
      * Sets the value of the cancellationApproved property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setCancellationApproved(boolean value) {
+    public void setCancellationApproved(Boolean value) {
         this.cancellationApproved = value;
     }
 

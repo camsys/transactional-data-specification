@@ -4,7 +4,10 @@ package com.camsys.tds;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
+import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
@@ -37,23 +40,36 @@ public class TripScheduledConfirmationType
     extends TelegramMessageType
 {
 
-    protected boolean dataReceived;
+    @XmlElement(required = true, type = String.class)
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
+    protected Boolean dataReceived;
     @XmlAttribute(name = "paymentRejected")
+    @XmlJavaTypeAdapter(Adapter1 .class)
+    @XmlSchemaType(name = "boolean")
     protected Boolean paymentRejected;
 
     /**
      * Gets the value of the dataReceived property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public boolean isDataReceived() {
+    public Boolean isDataReceived() {
         return dataReceived;
     }
 
     /**
      * Sets the value of the dataReceived property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setDataReceived(boolean value) {
+    public void setDataReceived(Boolean value) {
         this.dataReceived = value;
     }
 
@@ -62,7 +78,7 @@ public class TripScheduledConfirmationType
      * 
      * @return
      *     possible object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public Boolean isPaymentRejected() {
@@ -74,7 +90,7 @@ public class TripScheduledConfirmationType
      * 
      * @param value
      *     allowed object is
-     *     {@link Boolean }
+     *     {@link String }
      *     
      */
     public void setPaymentRejected(Boolean value) {
