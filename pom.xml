@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.camsys</groupId>
   <artifactId>transactional-data-specification</artifactId>
-  <version>1.1.2-SNAPSHOT</version>
+  <version>1.1.2</version>
   <name>Archetype - transactional-data-specification</name>
   <url>http://maven.apache.org</url>
 
@@ -26,7 +26,7 @@
         <connection>scm:git:http://github.com/camsys/transactional-data-specification.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/camsys/transactional-data-specification.git</developerConnection>
         <url>http://github.com/camsys/transactional-data-specification</url>
-    <tag>HEAD</tag>
+    <tag>transactional-data-specification-1.1.2</tag>
   </scm>
 
   <distributionManagement>
