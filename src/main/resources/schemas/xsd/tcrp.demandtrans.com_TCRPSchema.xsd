@@ -42,7 +42,7 @@
         <xsd:sequence>
           <xsd:element name="pickupAddress" type="addressType"></xsd:element>
           <xsd:element name="dropoffAddress" type="addressType"/>
-          <xsd:element name="pickupTime" type="time"/>
+          <xsd:element name="pickupTime" type="time" minOccurs="0"/>
           <xsd:element name="appointmentTime" type="time" minOccurs="0"/>
           <xsd:element name="dropoffTime" type="time" minOccurs="0"/>
           <xsd:element name="pickupWindowStartTime" type="time" minOccurs="0"/>
@@ -455,7 +455,7 @@
     <xsd:attribute name="postalNo" type="xsd:string" use="optional"/>
     <xsd:attribute name="country" type="xsd:string" use="optional"/>
     <xsd:attribute name="mapPage" type="xsd:string" use="optional"/>
-
+    <xsd:attribute name="addressDescription" type="xsd:string" use="optional"/>
   </xsd:complexType>
   
   <xsd:complexType name="geographicLocation">

@@ -49,6 +49,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;attribute name="postalNo" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="country" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="mapPage" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="addressDescription" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -98,6 +99,8 @@ public class AddressType {
     protected String country;
     @XmlAttribute(name = "mapPage")
     protected String mapPage;
+    @XmlAttribute(name = "addressDescription")
+    protected String addressDescription;
 
     /**
      * Gets the value of the manualDescriptionAddress property.
@@ -544,6 +547,30 @@ public class AddressType {
      */
     public void setMapPage(String value) {
         this.mapPage = value;
+    }
+
+    /**
+     * Gets the value of the addressDescription property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getAddressDescription() {
+        return addressDescription;
+    }
+
+    /**
+     * Sets the value of the addressDescription property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setAddressDescription(String value) {
+        this.addressDescription = value;
     }
 
 

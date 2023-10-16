@@ -27,7 +27,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *       &lt;sequence&gt;
  *         &lt;element name="pickupAddress" type="{}addressType"/&gt;
  *         &lt;element name="dropoffAddress" type="{}addressType"/&gt;
- *         &lt;element name="pickupTime" type="{}time"/&gt;
+ *         &lt;element name="pickupTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="appointmentTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="dropoffTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="pickupWindowStartTime" type="{}time" minOccurs="0"/&gt;
@@ -72,7 +72,6 @@ public class TripRequestType
     protected AddressType pickupAddress;
     @XmlElement(required = true)
     protected AddressType dropoffAddress;
-    @XmlElement(required = true)
     protected Time pickupTime;
     protected Time appointmentTime;
     protected Time dropoffTime;
