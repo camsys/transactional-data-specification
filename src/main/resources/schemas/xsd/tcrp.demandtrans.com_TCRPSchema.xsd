@@ -111,7 +111,7 @@
           </xsd:element>
           <xsd:element name="pickupAddress" type="addressType"/>
           <xsd:element name="dropoffAddress" type="addressType"/>
-          <xsd:element name="pickupTime" type="time"/>
+          <xsd:element name="pickupTime" type="time" minOccurs="0"/>
           <xsd:element name="appointmentTime" type="time" minOccurs="0"/>
           <xsd:element name="dropoffTime" type="time" minOccurs="0"/>
           <xsd:element name="pickupWindowStartTime" type="time" minOccurs="0"/>
