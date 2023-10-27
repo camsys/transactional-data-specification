@@ -28,7 +28,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *         &lt;element name="tripRequestId" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="pickupAddress" type="{}addressType"/&gt;
  *         &lt;element name="dropoffAddress" type="{}addressType"/&gt;
- *         &lt;element name="pickupTime" type="{}time"/&gt;
+ *         &lt;element name="pickupTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="appointmentTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="dropoffTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="pickupWindowStartTime" type="{}time" minOccurs="0"/&gt;

@@ -6,7 +6,6 @@ import java.util.List;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 
@@ -22,9 +21,9 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{}telegramMessageType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="scheduledPickupTime" type="{}time"/&gt;
- *         &lt;element name="scheduledPickupPoint" type="{}addressType"/&gt;
- *         &lt;element name="scheduledDropoffPoint" type="{}addressType"/&gt;
+ *         &lt;element name="scheduledPickupTime" type="{}time" minOccurs="0"/&gt;
+ *         &lt;element name="scheduledPickupPoint" type="{}addressType" minOccurs="0"/&gt;
+ *         &lt;element name="scheduledDropoffPoint" type="{}addressType" minOccurs="0"/&gt;
  *         &lt;element name="scheduledDropoffTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="transferPoint" type="{}addressType" minOccurs="0"/&gt;
  *         &lt;element name="provider" type="{}providerType" minOccurs="0"/&gt;
@@ -56,11 +55,8 @@ public class ProviderOrderConfirmationType
     extends TelegramMessageType
 {
 
-    @XmlElement(required = true)
     protected Time scheduledPickupTime;
-    @XmlElement(required = true)
     protected AddressType scheduledPickupPoint;
-    @XmlElement(required = true)
     protected AddressType scheduledDropoffPoint;
     protected Time scheduledDropoffTime;
     protected AddressType transferPoint;
