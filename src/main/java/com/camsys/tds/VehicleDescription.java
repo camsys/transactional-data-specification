@@ -12,26 +12,25 @@ import java.math.BigInteger;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 
 /**
- * Telegram #: 2BB; From: trip provider; To: ordering client; Purpose: confirm vehicle
- * 
- * <p>Java class for vehicleConfirmationType complex type.
+ * <p>Java class for vehicleDescription complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="vehicleConfirmationType"&gt;
+ * &lt;complexType name="vehicleDescription"&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{}telegramMessageType"&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="vehicleNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="driverId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="vehicleInformation" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="availabilityForService" type="{}time" minOccurs="0"/&gt;
+ *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="number" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
+ *       &lt;attribute name="vin" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="licensePlate" type="{}rangeUnitEnum" /&gt;
  *       &lt;attribute name="fuelRange" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="ambulatorySpacePoints" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
  *       &lt;attribute name="largeWheelchairSpacePoints" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
@@ -39,14 +38,13 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;attribute name="hasLift" type="{http://www.w3.org/2001/XMLSchema}boolean" /&gt;
  *       &lt;attribute name="standardWheelchairSpacePoints" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
  *       &lt;attribute name="cargoSpacePoints" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
- *       &lt;attribute name="vehicleId" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
  *       &lt;attribute name="vehicleModel" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="conversionFactorForAmbulatoryPointsToStandardWheelchairPoints" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="conversionFactorForAmbulatoryPointsToLargeWheelchairPoints" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="flatFloor" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="owner" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="rideVibrationQuality" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *     &lt;/extension&gt;
+ *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -54,20 +52,20 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "vehicleConfirmationType", propOrder = {
-    "vehicleNumber",
-    "driverId",
-    "vehicleInformation",
-    "availabilityForService"
+@XmlType(name = "vehicleDescription", propOrder = {
+    "id",
+    "number"
 })
-public class VehicleConfirmationType
-    extends TelegramMessageType
-{
+public class VehicleDescription {
 
-    protected String vehicleNumber;
-    protected String driverId;
-    protected String vehicleInformation;
-    protected Time availabilityForService;
+    @XmlElement(required = true)
+    protected String id;
+    @XmlElement(required = true)
+    protected String number;
+    @XmlAttribute(name = "vin")
+    protected String vin;
+    @XmlAttribute(name = "licensePlate")
+    protected RangeUnitEnum licensePlate;
     @XmlAttribute(name = "fuelRange")
     protected Float fuelRange;
     @XmlAttribute(name = "ambulatorySpacePoints")
@@ -82,8 +80,6 @@ public class VehicleConfirmationType
     protected BigInteger standardWheelchairSpacePoints;
     @XmlAttribute(name = "cargoSpacePoints")
     protected BigInteger cargoSpacePoints;
-    @XmlAttribute(name = "vehicleId")
-    protected BigInteger vehicleId;
     @XmlAttribute(name = "vehicleModel")
     protected String vehicleModel;
     @XmlAttribute(name = "conversionFactorForAmbulatoryPointsToStandardWheelchairPoints")
@@ -98,99 +94,99 @@ public class VehicleConfirmationType
     protected String rideVibrationQuality;
 
     /**
-     * Gets the value of the vehicleNumber property.
+     * Gets the value of the id property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getVehicleNumber() {
-        return vehicleNumber;
+    public String getId() {
+        return id;
     }
 
     /**
-     * Sets the value of the vehicleNumber property.
+     * Sets the value of the id property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setVehicleNumber(String value) {
-        this.vehicleNumber = value;
+    public void setId(String value) {
+        this.id = value;
     }
 
     /**
-     * Gets the value of the driverId property.
+     * Gets the value of the number property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getDriverId() {
-        return driverId;
+    public String getNumber() {
+        return number;
     }
 
     /**
-     * Sets the value of the driverId property.
+     * Sets the value of the number property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setDriverId(String value) {
-        this.driverId = value;
+    public void setNumber(String value) {
+        this.number = value;
     }
 
     /**
-     * Gets the value of the vehicleInformation property.
+     * Gets the value of the vin property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getVehicleInformation() {
-        return vehicleInformation;
+    public String getVin() {
+        return vin;
     }
 
     /**
-     * Sets the value of the vehicleInformation property.
+     * Sets the value of the vin property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setVehicleInformation(String value) {
-        this.vehicleInformation = value;
+    public void setVin(String value) {
+        this.vin = value;
     }
 
     /**
-     * Gets the value of the availabilityForService property.
+     * Gets the value of the licensePlate property.
      * 
      * @return
      *     possible object is
-     *     {@link Time }
+     *     {@link RangeUnitEnum }
      *     
      */
-    public Time getAvailabilityForService() {
-        return availabilityForService;
+    public RangeUnitEnum getLicensePlate() {
+        return licensePlate;
     }
 
     /**
-     * Sets the value of the availabilityForService property.
+     * Sets the value of the licensePlate property.
      * 
      * @param value
      *     allowed object is
-     *     {@link Time }
+     *     {@link RangeUnitEnum }
      *     
      */
-    public void setAvailabilityForService(Time value) {
-        this.availabilityForService = value;
+    public void setLicensePlate(RangeUnitEnum value) {
+        this.licensePlate = value;
     }
 
     /**
@@ -359,30 +355,6 @@ public class VehicleConfirmationType
      */
     public void setCargoSpacePoints(BigInteger value) {
         this.cargoSpacePoints = value;
-    }
-
-    /**
-     * Gets the value of the vehicleId property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
-     */
-    public BigInteger getVehicleId() {
-        return vehicleId;
-    }
-
-    /**
-     * Sets the value of the vehicleId property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
-     */
-    public void setVehicleId(BigInteger value) {
-        this.vehicleId = value;
     }
 
     /**
