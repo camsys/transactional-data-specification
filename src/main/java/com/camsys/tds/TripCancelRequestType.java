@@ -22,7 +22,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="cancellationTime" type="{}time"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="reason" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="reason" type="{}clientTripCancellationReasonEnum" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -41,7 +41,7 @@ public class TripCancelRequestType
     @XmlElement(required = true)
     protected Time cancellationTime;
     @XmlAttribute(name = "reason")
-    protected String reason;
+    protected ClientTripCancellationReasonEnum reason;
 
     /**
      * Gets the value of the cancellationTime property.
@@ -72,10 +72,10 @@ public class TripCancelRequestType
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ClientTripCancellationReasonEnum }
      *     
      */
-    public String getReason() {
+    public ClientTripCancellationReasonEnum getReason() {
         return reason;
     }
 
@@ -84,10 +84,10 @@ public class TripCancelRequestType
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ClientTripCancellationReasonEnum }
      *     
      */
-    public void setReason(String value) {
+    public void setReason(ClientTripCancellationReasonEnum value) {
         this.reason = value;
     }
 

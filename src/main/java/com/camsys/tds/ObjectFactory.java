@@ -42,6 +42,9 @@ public class ObjectFactory {
     private final static QName _TripTaskStatus_QNAME = new QName("", "tripTaskStatus");
     private final static QName _TripCancelRequest_QNAME = new QName("", "tripCancelRequest");
     private final static QName _TripCancelResponse_QNAME = new QName("", "tripCancelResponse");
+    private final static QName _RealtimeTripUpdate_QNAME = new QName("", "realtimeTripUpdate");
+    private final static QName _RealtimeVehiclePosition_QNAME = new QName("", "realtimeVehiclePosition");
+    private final static QName _TripPickupArrivalConfirmation_QNAME = new QName("", "tripPickupArrivalConfirmation");
     private final static QName _ClientOrderConfirmationTypeTripRequestId_QNAME = new QName("", "tripRequestId");
     private final static QName _ClientOrderConfirmationTypePickupAddress_QNAME = new QName("", "pickupAddress");
     private final static QName _ClientOrderConfirmationTypeDropoffAddress_QNAME = new QName("", "dropoffAddress");
@@ -198,6 +201,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RealtimeTripUpdateType }
+     * 
+     */
+    public RealtimeTripUpdateType createRealtimeTripUpdateType() {
+        return new RealtimeTripUpdateType();
+    }
+
+    /**
+     * Create an instance of {@link RealtimeVehiclePositionType }
+     * 
+     */
+    public RealtimeVehiclePositionType createRealtimeVehiclePositionType() {
+        return new RealtimeVehiclePositionType();
+    }
+
+    /**
+     * Create an instance of {@link TripPickupArrivalConfirmationType }
+     * 
+     */
+    public TripPickupArrivalConfirmationType createTripPickupArrivalConfirmationType() {
+        return new TripPickupArrivalConfirmationType();
+    }
+
+    /**
      * Create an instance of {@link GeographicLocation }
      * 
      */
@@ -243,6 +270,22 @@ public class ObjectFactory {
      */
     public VehicleDistance createVehicleDistance() {
         return new VehicleDistance();
+    }
+
+    /**
+     * Create an instance of {@link VehicleDescription }
+     * 
+     */
+    public VehicleDescription createVehicleDescription() {
+        return new VehicleDescription();
+    }
+
+    /**
+     * Create an instance of {@link DriverDescription }
+     * 
+     */
+    public DriverDescription createDriverDescription() {
+        return new DriverDescription();
     }
 
     /**
@@ -467,6 +510,45 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "", name = "tripCancelResponse")
     public JAXBElement<TripCancelResponseType> createTripCancelResponse(TripCancelResponseType value) {
         return new JAXBElement<TripCancelResponseType>(_TripCancelResponse_QNAME, TripCancelResponseType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RealtimeTripUpdateType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RealtimeTripUpdateType }{@code >}
+     */
+    @XmlElementDecl(namespace = "", name = "realtimeTripUpdate")
+    public JAXBElement<RealtimeTripUpdateType> createRealtimeTripUpdate(RealtimeTripUpdateType value) {
+        return new JAXBElement<RealtimeTripUpdateType>(_RealtimeTripUpdate_QNAME, RealtimeTripUpdateType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RealtimeVehiclePositionType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link RealtimeVehiclePositionType }{@code >}
+     */
+    @XmlElementDecl(namespace = "", name = "realtimeVehiclePosition")
+    public JAXBElement<RealtimeVehiclePositionType> createRealtimeVehiclePosition(RealtimeVehiclePositionType value) {
+        return new JAXBElement<RealtimeVehiclePositionType>(_RealtimeVehiclePosition_QNAME, RealtimeVehiclePositionType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link TripPickupArrivalConfirmationType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link TripPickupArrivalConfirmationType }{@code >}
+     */
+    @XmlElementDecl(namespace = "", name = "tripPickupArrivalConfirmation")
+    public JAXBElement<TripPickupArrivalConfirmationType> createTripPickupArrivalConfirmation(TripPickupArrivalConfirmationType value) {
+        return new JAXBElement<TripPickupArrivalConfirmationType>(_TripPickupArrivalConfirmation_QNAME, TripPickupArrivalConfirmationType.class, null, value);
     }
 
     /**

@@ -29,6 +29,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="scheduledPickupPoint" type="{}addressType" minOccurs="0"/&gt;
  *         &lt;element name="scheduledDropoffPoint" type="{}addressType" minOccurs="0"/&gt;
  *         &lt;element name="transferPoint" type="{}addressType" minOccurs="0"/&gt;
+ *         &lt;element name="tripRejectionReason" type="{}tripRejectionReasonEnum" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="paymentTypeList" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" /&gt;
  *       &lt;attribute name="fareAmount" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
@@ -46,7 +47,8 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "scheduledPickupTime",
     "scheduledPickupPoint",
     "scheduledDropoffPoint",
-    "transferPoint"
+    "transferPoint",
+    "tripRejectionReason"
 })
 public class TripRequestResponseType
     extends TelegramMessageType
@@ -60,6 +62,8 @@ public class TripRequestResponseType
     protected AddressType scheduledPickupPoint;
     protected AddressType scheduledDropoffPoint;
     protected AddressType transferPoint;
+    @XmlSchemaType(name = "string")
+    protected TripRejectionReasonEnum tripRejectionReason;
     @XmlAttribute(name = "paymentTypeList")
     @XmlSchemaType(name = "anySimpleType")
     protected String paymentTypeList;
@@ -186,6 +190,30 @@ public class TripRequestResponseType
      */
     public void setTransferPoint(AddressType value) {
         this.transferPoint = value;
+    }
+
+    /**
+     * Gets the value of the tripRejectionReason property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link TripRejectionReasonEnum }
+     *     
+     */
+    public TripRejectionReasonEnum getTripRejectionReason() {
+        return tripRejectionReason;
+    }
+
+    /**
+     * Sets the value of the tripRejectionReason property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link TripRejectionReasonEnum }
+     *     
+     */
+    public void setTripRejectionReason(TripRejectionReasonEnum value) {
+        this.tripRejectionReason = value;
     }
 
     /**

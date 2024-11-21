@@ -26,7 +26,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="cancellationApproved" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *         &lt;element name="cancellationRequestOrigin" type="{}requestOriginEnum"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="reason" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
+ *       &lt;attribute name="reason" type="{}providerTripCancellationReasonEnum" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -54,7 +54,7 @@ public class TripCancelResponseType
     @XmlSchemaType(name = "string")
     protected RequestOriginEnum cancellationRequestOrigin;
     @XmlAttribute(name = "reason")
-    protected String reason;
+    protected ProviderTripCancellationReasonEnum reason;
 
     /**
      * Gets the value of the cancellationTime property.
@@ -133,10 +133,10 @@ public class TripCancelResponseType
      * 
      * @return
      *     possible object is
-     *     {@link String }
+     *     {@link ProviderTripCancellationReasonEnum }
      *     
      */
-    public String getReason() {
+    public ProviderTripCancellationReasonEnum getReason() {
         return reason;
     }
 
@@ -145,10 +145,10 @@ public class TripCancelResponseType
      * 
      * @param value
      *     allowed object is
-     *     {@link String }
+     *     {@link ProviderTripCancellationReasonEnum }
      *     
      */
-    public void setReason(String value) {
+    public void setReason(ProviderTripCancellationReasonEnum value) {
         this.reason = value;
     }
 

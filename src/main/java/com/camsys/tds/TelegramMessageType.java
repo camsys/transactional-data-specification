@@ -23,6 +23,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="tripRequestId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="telegramType" type="{}telegramTypeEnum"/&gt;
+ *         &lt;element name="timestamp" type="{}time"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -34,7 +35,8 @@ import jakarta.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "telegramMessageType", propOrder = {
     "tripRequestId",
-    "telegramType"
+    "telegramType",
+    "timestamp"
 })
 @XmlSeeAlso({
     TripRequestType.class,
@@ -49,7 +51,10 @@ import jakarta.xml.bind.annotation.XmlType;
     TripScheduledConfirmationType.class,
     TripTaskStatusType.class,
     TripCancelRequestType.class,
-    TripCancelResponseType.class
+    TripCancelResponseType.class,
+    RealtimeTripUpdateType.class,
+    RealtimeVehiclePositionType.class,
+    TripPickupArrivalConfirmationType.class
 })
 public class TelegramMessageType {
 
@@ -57,6 +62,8 @@ public class TelegramMessageType {
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected TelegramTypeEnum telegramType;
+    @XmlElement(required = true)
+    protected Time timestamp;
 
     /**
      * Gets the value of the tripRequestId property.
@@ -104,6 +111,30 @@ public class TelegramMessageType {
      */
     public void setTelegramType(TelegramTypeEnum value) {
         this.telegramType = value;
+    }
+
+    /**
+     * Gets the value of the timestamp property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Time }
+     *     
+     */
+    public Time getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * Sets the value of the timestamp property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Time }
+     *     
+     */
+    public void setTimestamp(Time value) {
+        this.timestamp = value;
     }
 
 }
