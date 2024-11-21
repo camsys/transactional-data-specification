@@ -17,6 +17,9 @@
   <xsd:element name="tripTaskStatus" type="tripTaskStatusType"/>
   <xsd:element name="tripCancelRequest" type="tripCancelRequestType"/>
   <xsd:element name="tripCancelResponse" type="tripCancelResponseType"/>
+  <xsd:element name="realtimeTripUpdate" type="realtimeTripUpdateType"/>
+  <xsd:element name="realtimeVehiclePosition" type="realtimeVehiclePositionType"/>
+  <xsd:element name="tripPickupArrivalConfirmation" type="tripPickupArrivalConfirmationType"/>
 
 
   <xsd:complexType name="telegramMessageType">
@@ -30,6 +33,11 @@
         </xsd:annotation>
       </xsd:element>
       <xsd:element name="telegramType" type="telegramTypeEnum" minOccurs="1"></xsd:element>
+      <xsd:element name="timestamp" type="time">
+        <xsd:annotation>
+          <xsd:documentation>unique ID from ordering client</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
 
@@ -89,6 +97,7 @@
           <xsd:element name="scheduledPickupPoint" type="addressType" minOccurs="0"/>
           <xsd:element name="scheduledDropoffPoint" type="addressType" minOccurs="0"/>
           <xsd:element name="transferPoint" type="addressType" minOccurs="0"/>
+          <xsd:element name="tripRejectionReason" type="tripRejectionReasonEnum" minOccurs="0"/>
         </xsd:sequence>
         <xsd:attribute name="paymentTypeList" use="optional"/>
         <xsd:attribute name="fareAmount" type="xsd:float" use="optional"/>
@@ -383,7 +392,7 @@
         <xsd:sequence>
           <xsd:element name="cancellationTime" type="time"/>
         </xsd:sequence>
-        <xsd:attribute name="reason" type="xsd:string">
+        <xsd:attribute name="reason" type="clientTripCancellationReasonEnum">
           <xsd:annotation>
             <xsd:documentation>reason for cancellation</xsd:documentation>
           </xsd:annotation>
@@ -403,11 +412,54 @@
           <xsd:element name="cancellationApproved" type="xsd:boolean"/>
           <xsd:element name="cancellationRequestOrigin" type="requestOriginEnum"/>
         </xsd:sequence>
-        <xsd:attribute name="reason" type="xsd:string">
-          <xsd:annotation>
-            <xsd:documentation>reason for cancellation</xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
+        <xsd:attribute name="reason" type="providerTripCancellationReasonEnum" />
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="realtimeTripUpdateType">
+    <xsd:annotation>
+      <xsd:documentation>Telegram #: 8B; From: trip provider; To: customer/client; Purpose: Realtime Trip Update</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="telegramMessageType">
+        <xsd:sequence>
+          <xsd:element name="driverInfo" type="driverDescription" />
+          <xsd:element name="vehicleInfo" type="vehicleDescription" />
+          <xsd:element name="GPS" type="geographicLocation" minOccurs="0"/>
+          <xsd:element name="estimatedArrivalTime" type="time" minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="realtimeVehiclePositionType">
+    <xsd:annotation>
+      <xsd:documentation>Telegram #: 9B; From: trip provider; To: customer/client; Purpose: Realtime Vehicle Position</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="telegramMessageType">
+        <xsd:sequence>
+          <xsd:element name="vehicleInfo" type="vehicleDescription" />
+          <xsd:element name="GPS" type="geographicLocation" />
+          <xsd:element name="driverInfo" type="driverDescription"  minOccurs="0"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="tripPickupArrivalConfirmationType">
+    <xsd:annotation>
+      <xsd:documentation>Telegram #: 10B; From: trip provider; To: customer/client; Purpose: Trip Pickup Arrival Confirmation</xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="telegramMessageType">
+        <xsd:sequence>
+          <xsd:element name="driverInfo" type="driverDescription" />
+          <xsd:element name="vehicleInfo" type="vehicleDescription" />
+          <xsd:element name="GPS" type="geographicLocation" />
+          <xsd:element name="passengerBoarded" type="xsd:boolean" />
+        </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -651,6 +703,64 @@
 			</xsd:annotation>
 		</xsd:attribute>
 	</xsd:complexType>
+
+  <xsd:complexType name="vehicleDescription">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>A unique identifier for the vehicle and provider</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="number" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The number of the vehicle. Used by the transportation provider as a logical identifier of the vehicle.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="vin" type="xsd:string">
+      <xsd:annotation>
+        <xsd:documentation>The VIN for the vehicle</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="licensePlate" type="rangeUnitEnum">
+      <xsd:annotation>
+        <xsd:documentation>The license plate of the vehicle</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="fuelRange" type="xsd:float"  use="optional"/>
+    <xsd:attribute name="ambulatorySpacePoints" type="xsd:integer"  use="optional"/>
+    <xsd:attribute name="largeWheelchairSpacePoints" type="xsd:integer"  use="optional"/>
+    <xsd:attribute name="hasRamp" type="xsd:boolean"  use="optional"/>
+    <xsd:attribute name="hasLift" type="xsd:boolean"  use="optional"/>
+    <xsd:attribute name="standardWheelchairSpacePoints" type="xsd:integer"  use="optional"/>
+    <xsd:attribute name="cargoSpacePoints" type="xsd:integer"  use="optional"/>
+    <xsd:attribute name="vehicleModel" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="conversionFactorForAmbulatoryPointsToStandardWheelchairPoints" type="xsd:float"  use="optional"/>
+    <xsd:attribute name="conversionFactorForAmbulatoryPointsToLargeWheelchairPoints" type="xsd:float"  use="optional"/>
+    <xsd:attribute name="flatFloor" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="owner" type="xsd:string"  use="optional"/>
+    <xsd:attribute name="rideVibrationQuality" type="xsd:string"  use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="driverDescription">
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>The unique id for the driver and provider</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="firstName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>First name of the driver</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="lastName" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Last name of the driver</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
 
   <!-- Enums -->
   <xsd:simpleType name="telegramTypeEnum">
@@ -940,6 +1050,88 @@
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="client"/>
       <xsd:enumeration value="provider"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="clientTripCancellationReasonEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="BOOKED_BY_MISTAKE">
+        <xsd:annotation>
+          <xsd:documentation>Client accidentally booked a trip that they no longer want.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="BOOKING_TIME">
+        <xsd:annotation>
+          <xsd:documentation>Undesired scheduled pickup or drop off time</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="CHANGED_MY_MIND" />
+      <xsd:enumeration value="UNABLE_TO_MAKE_TRIP" />
+      <xsd:enumeration value="OTHER" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="providerTripCancellationReasonEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NO_CLIENT">
+        <xsd:annotation>
+          <xsd:documentation>Client accidentally booked a trip that they no longer want.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="CANCEL_AT_DOOR">
+        <xsd:annotation>
+          <xsd:documentation>Client accidentally booked a trip that they no longer want.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="NOT_READY">
+        <xsd:annotation>
+          <xsd:documentation>Client accidentally booked a trip that they no longer want.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="PROVIDER_ADMIN_CANCEL">
+        <xsd:annotation>
+          <xsd:documentation>Client accidentally booked a trip that they no longer want.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="tripRejectionReasonEnum">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="NOT_IN_SERVICE_AREA">
+        <xsd:annotation>
+          <xsd:documentation>The requested trip is not in a valid service area.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="INVALID_SERVICE_HOURS">
+        <xsd:annotation>
+          <xsd:documentation>The requested trip is outside the expected operating hours.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="INVALID_USER" >
+        <xsd:annotation>
+          <xsd:documentation>Invalid user</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="INVALID_PICKUP_ADDRESS" />
+      <xsd:enumeration value="INVALID_DROPOFF_ADDRESS" />
+      <xsd:enumeration value="NO_VEHICLES_AVAILABLE" />
+      <xsd:enumeration value="UNABLE_TO_SERVICE_TRIP">
+        <xsd:annotation>
+          <xsd:documentation>Provider is unable to provide service for the requested trip.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="BAD_WEATHER">
+        <xsd:annotation>
+          <xsd:documentation>Unable to provide service due to bad weather.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="WRONG_SERVICE_LEVEL">
+        <xsd:annotation>
+          <xsd:documentation>Unable to meet specific client needs.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="OTHER" />
     </xsd:restriction>
   </xsd:simpleType>
 
