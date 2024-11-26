@@ -717,7 +717,7 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="vin" type="xsd:string" minOccurs="0">
+    <xsd:attribute name="vin" type="xsd:string">
       <xsd:annotation>
         <xsd:documentation>The VIN for the vehicle</xsd:documentation>
       </xsd:annotation>
