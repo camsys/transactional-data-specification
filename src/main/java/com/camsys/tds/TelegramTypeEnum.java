@@ -27,6 +27,9 @@ import jakarta.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="TripTaskStatus"/&gt;
  *     &lt;enumeration value="TripCancelRequest"/&gt;
  *     &lt;enumeration value="TripCancelResponse"/&gt;
+ *     &lt;enumeration value="RealtimeTripUpdate"/&gt;
+ *     &lt;enumeration value="RealtimeVehiclePosition"/&gt;
+ *     &lt;enumeration value="TripPickupArrivalConfirmation"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -63,7 +66,13 @@ public enum TelegramTypeEnum {
     @XmlEnumValue("TripCancelRequest")
     TRIP_CANCEL_REQUEST("TripCancelRequest"),
     @XmlEnumValue("TripCancelResponse")
-    TRIP_CANCEL_RESPONSE("TripCancelResponse");
+    TRIP_CANCEL_RESPONSE("TripCancelResponse"),
+    @XmlEnumValue("RealtimeTripUpdate")
+    REALTIME_TRIP_UPDATE("RealtimeTripUpdate"),
+    @XmlEnumValue("RealtimeVehiclePosition")
+    REALTIME_VEHICLE_POSITION("RealtimeVehiclePosition"),
+    @XmlEnumValue("TripPickupArrivalConfirmation")
+    TRIP_PICKUP_ARRIVAL_CONFIRMATION("TripPickupArrivalConfirmation");
     private final String value;
 
     TelegramTypeEnum(String v) {

@@ -25,7 +25,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="number" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *       &lt;/sequence&gt;
  *       &lt;attribute name="vin" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
- *       &lt;attribute name="licensePlate" type="{}rangeUnitEnum" /&gt;
+ *       &lt;attribute name="licensePlate" type="{http://www.w3.org/2001/XMLSchema}string" /&gt;
  *       &lt;attribute name="fuelRange" type="{http://www.w3.org/2001/XMLSchema}float" /&gt;
  *       &lt;attribute name="ambulatorySpacePoints" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
  *       &lt;attribute name="largeWheelchairSpacePoints" type="{http://www.w3.org/2001/XMLSchema}integer" /&gt;
@@ -60,7 +60,7 @@ public class VehicleDescription {
     @XmlAttribute(name = "vin")
     protected String vin;
     @XmlAttribute(name = "licensePlate")
-    protected RangeUnitEnum licensePlate;
+    protected String licensePlate;
     @XmlAttribute(name = "fuelRange")
     protected Float fuelRange;
     @XmlAttribute(name = "ambulatorySpacePoints")
@@ -169,10 +169,10 @@ public class VehicleDescription {
      * 
      * @return
      *     possible object is
-     *     {@link RangeUnitEnum }
+     *     {@link String }
      *     
      */
-    public RangeUnitEnum getLicensePlate() {
+    public String getLicensePlate() {
         return licensePlate;
     }
 
@@ -181,10 +181,10 @@ public class VehicleDescription {
      * 
      * @param value
      *     allowed object is
-     *     {@link RangeUnitEnum }
+     *     {@link String }
      *     
      */
-    public void setLicensePlate(RangeUnitEnum value) {
+    public void setLicensePlate(String value) {
         this.licensePlate = value;
     }
 

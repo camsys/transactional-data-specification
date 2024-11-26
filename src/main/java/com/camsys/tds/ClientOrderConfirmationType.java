@@ -123,7 +123,6 @@ public class ClientOrderConfirmationType
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link AddressType }{@code >}
      * {@link JAXBElement }{@code <}{@link AddressType }{@code >}
      * {@link JAXBElement }{@code <}{@link Time }{@code >}
@@ -131,17 +130,18 @@ public class ClientOrderConfirmationType
      * {@link JAXBElement }{@code <}{@link Time }{@code >}
      * {@link JAXBElement }{@code <}{@link Time }{@code >}
      * {@link JAXBElement }{@code <}{@link Time }{@code >}
-     * {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      * {@link JAXBElement }{@code <}{@link Time }{@code >}
      * {@link JAXBElement }{@code <}{@link Boolean }{@code >}
      * {@link JAXBElement }{@code <}{@link Boolean }{@code >}
+     * {@link JAXBElement }{@code <}{@link Boolean }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
+     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link String }{@code >}
      * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
      * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
      * {@link JAXBElement }{@code <}{@link BigInteger }{@code >}
-     * {@link JAXBElement }{@code <}{@link String }{@code >}
      * 
      * 
      */

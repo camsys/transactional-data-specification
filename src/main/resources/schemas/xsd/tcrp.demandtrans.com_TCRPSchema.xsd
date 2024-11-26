@@ -717,12 +717,12 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="vin" type="xsd:string">
+    <xsd:attribute name="vin" type="xsd:string" minOccurs="0">
       <xsd:annotation>
         <xsd:documentation>The VIN for the vehicle</xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="licensePlate" type="rangeUnitEnum">
+    <xsd:attribute name="licensePlate" type="xsd:string">
       <xsd:annotation>
         <xsd:documentation>The license plate of the vehicle</xsd:documentation>
       </xsd:annotation>
@@ -779,6 +779,9 @@
       <xsd:enumeration value="TripTaskStatus" /><!-- Telegram 5 -->
       <xsd:enumeration value="TripCancelRequest" /><!-- Telegram 6A -->
       <xsd:enumeration value="TripCancelResponse" /><!-- Telegram 6B -->
+      <xsd:enumeration value="RealtimeTripUpdate" /><!-- Telegram 8B -->
+      <xsd:enumeration value="RealtimeVehiclePosition" /><!-- Telegram 9B -->
+      <xsd:enumeration value="TripPickupArrivalConfirmation" /><!-- Telegram 10B -->
     </xsd:restriction>
   </xsd:simpleType>
 
