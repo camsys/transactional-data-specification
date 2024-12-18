@@ -22,7 +22,6 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{}telegramMessageType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="cancellationTime" type="{}time"/&gt;
  *         &lt;element name="cancellationApproved" type="{http://www.w3.org/2001/XMLSchema}boolean"/&gt;
  *         &lt;element name="cancellationRequestOrigin" type="{}requestOriginEnum"/&gt;
  *       &lt;/sequence&gt;
@@ -36,7 +35,6 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "tripCancelResponseType", propOrder = {
-    "cancellationTime",
     "cancellationApproved",
     "cancellationRequestOrigin"
 })
@@ -44,8 +42,6 @@ public class TripCancelResponseType
     extends TelegramMessageType
 {
 
-    @XmlElement(required = true)
-    protected Time cancellationTime;
     @XmlElement(required = true, type = String.class)
     @XmlJavaTypeAdapter(Adapter1 .class)
     @XmlSchemaType(name = "boolean")
@@ -55,30 +51,6 @@ public class TripCancelResponseType
     protected RequestOriginEnum cancellationRequestOrigin;
     @XmlAttribute(name = "reason")
     protected ProviderTripCancellationReasonEnum reason;
-
-    /**
-     * Gets the value of the cancellationTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Time }
-     *     
-     */
-    public Time getCancellationTime() {
-        return cancellationTime;
-    }
-
-    /**
-     * Sets the value of the cancellationTime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Time }
-     *     
-     */
-    public void setCancellationTime(Time value) {
-        this.cancellationTime = value;
-    }
 
     /**
      * Gets the value of the cancellationApproved property.

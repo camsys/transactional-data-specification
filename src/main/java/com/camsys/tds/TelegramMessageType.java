@@ -42,7 +42,7 @@ import jakarta.xml.bind.annotation.XmlType;
     TripRequestType.class,
     TripRequestResponseType.class,
     ClientOrderConfirmationType.class,
-    CustomerInfoType.class,
+    CustomerInfoRequestType.class,
     ProviderOrderConfirmationType.class,
     VehicleConfirmationType.class,
     TripTaskType.class,

@@ -32,6 +32,7 @@ public class ObjectFactory {
     private final static QName _TripRequestResponse_QNAME = new QName("", "tripRequestResponse");
     private final static QName _ClientOrderConfirmation_QNAME = new QName("", "clientOrderConfirmation");
     private final static QName _CustomerInfo_QNAME = new QName("", "customerInfo");
+    private final static QName _CustomerInfoRequest_QNAME = new QName("", "customerInfoRequest");
     private final static QName _ProviderOrderConfirmation_QNAME = new QName("", "providerOrderConfirmation");
     private final static QName _VehicleConfirmation_QNAME = new QName("", "vehicleConfirmation");
     private final static QName _Telegram_QNAME = new QName("", "telegram");
@@ -118,6 +119,14 @@ public class ObjectFactory {
      */
     public CustomerInfoType createCustomerInfoType() {
         return new CustomerInfoType();
+    }
+
+    /**
+     * Create an instance of {@link CustomerInfoRequestType }
+     * 
+     */
+    public CustomerInfoRequestType createCustomerInfoRequestType() {
+        return new CustomerInfoRequestType();
     }
 
     /**
@@ -380,6 +389,19 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "", name = "customerInfo")
     public JAXBElement<CustomerInfoType> createCustomerInfo(CustomerInfoType value) {
         return new JAXBElement<CustomerInfoType>(_CustomerInfo_QNAME, CustomerInfoType.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CustomerInfoRequestType }{@code >}
+     * 
+     * @param value
+     *     Java instance representing xml element's value.
+     * @return
+     *     the new instance of {@link JAXBElement }{@code <}{@link CustomerInfoRequestType }{@code >}
+     */
+    @XmlElementDecl(namespace = "", name = "customerInfoRequest")
+    public JAXBElement<CustomerInfoRequestType> createCustomerInfoRequest(CustomerInfoRequestType value) {
+        return new JAXBElement<CustomerInfoRequestType>(_CustomerInfoRequest_QNAME, CustomerInfoRequestType.class, null, value);
     }
 
     /**

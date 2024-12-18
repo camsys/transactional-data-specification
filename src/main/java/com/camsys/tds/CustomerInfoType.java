@@ -15,8 +15,6 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * Telegram #: 2A1; From: ordering client; To: trip provider(s); Purpose: customer info for trip
- * 
  * <p>Java class for customerInfoType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
@@ -24,7 +22,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * <pre>
  * &lt;complexType name="customerInfoType"&gt;
  *   &lt;complexContent&gt;
- *     &lt;extension base="{}telegramMessageType"&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="customerFirstName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="customerMiddleName" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
@@ -46,7 +44,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *         &lt;element name="notesForDriver" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="emailAddress" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
- *     &lt;/extension&gt;
+ *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
  * </pre>
@@ -75,9 +73,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
     "notesForDriver",
     "emailAddress"
 })
-public class CustomerInfoType
-    extends TelegramMessageType
-{
+public class CustomerInfoType {
 
     protected String customerFirstName;
     protected String customerMiddleName;

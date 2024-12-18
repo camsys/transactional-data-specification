@@ -4,7 +4,6 @@ package com.camsys.tds;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
-import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 
@@ -19,9 +18,6 @@ import jakarta.xml.bind.annotation.XmlType;
  * &lt;complexType name="tripCancelRequestType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;extension base="{}telegramMessageType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="cancellationTime" type="{}time"/&gt;
- *       &lt;/sequence&gt;
  *       &lt;attribute name="reason" type="{}clientTripCancellationReasonEnum" /&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -31,41 +27,13 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "tripCancelRequestType", propOrder = {
-    "cancellationTime"
-})
+@XmlType(name = "tripCancelRequestType")
 public class TripCancelRequestType
     extends TelegramMessageType
 {
 
-    @XmlElement(required = true)
-    protected Time cancellationTime;
     @XmlAttribute(name = "reason")
     protected ClientTripCancellationReasonEnum reason;
-
-    /**
-     * Gets the value of the cancellationTime property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Time }
-     *     
-     */
-    public Time getCancellationTime() {
-        return cancellationTime;
-    }
-
-    /**
-     * Sets the value of the cancellationTime property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Time }
-     *     
-     */
-    public void setCancellationTime(Time value) {
-        this.cancellationTime = value;
-    }
 
     /**
      * Gets the value of the reason property.

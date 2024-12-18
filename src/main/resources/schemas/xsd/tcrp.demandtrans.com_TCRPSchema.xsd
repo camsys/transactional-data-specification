@@ -7,6 +7,7 @@
   <xsd:element name="tripRequestResponse" type="tripRequestResponseType"/>
   <xsd:element name="clientOrderConfirmation" type="clientOrderConfirmationType"/>
   <xsd:element name="customerInfo" type="customerInfoType"/>
+  <xsd:element name="customerInfoRequest" type="customerInfoRequestType"/>
   <xsd:element name="providerOrderConfirmation" type="providerOrderConfirmationType"/>
   <xsd:element name="vehicleConfirmation" type="vehicleConfirmationType"/>
   <xsd:element name="telegram" type="telegramMessageType"/>
@@ -146,31 +147,37 @@
   </xsd:complexType>
 
   <xsd:complexType name="customerInfoType">
+    <xsd:sequence>
+      <xsd:element name="customerFirstName" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="customerMiddleName" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="customerLastName" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="customerAddress" type="addressType"  minOccurs="0"/>
+      <xsd:element name="customerPhone" type="xsd:integer"  minOccurs="0"/>
+      <xsd:element name="customerMobilePhone" type="xsd:integer"  minOccurs="0"/>
+      <xsd:element name="customerBillingAddress" type="addressType"  minOccurs="0"/>
+      <xsd:element name="fundingEntityBillingInformation" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="fundingType" type="xsd:boolean"  minOccurs="0"/>
+      <xsd:element name="gender" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="caregiverContactInformation" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="customerEmergencyPhoneNumber" type="xsd:integer"  minOccurs="0"/>
+      <xsd:element name="customerEmergencyContactName" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="requiredCareComments" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="dateOfBirth" type="xsd:date"  minOccurs="0"/>
+      <xsd:element name="customerId" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="paymentType" type="paymentTypeList"  minOccurs="0"/>
+      <xsd:element name="notesForDriver" type="xsd:string"  minOccurs="0"/>
+      <xsd:element name="emailAddress" type="xsd:string"  minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="customerInfoRequestType">
     <xsd:annotation>
       <xsd:documentation>Telegram #: 2A1; From: ordering client; To: trip provider(s); Purpose: customer info for trip</xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="telegramMessageType">
         <xsd:sequence>
-          <xsd:element name="customerFirstName" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="customerMiddleName" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="customerLastName" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="customerAddress" type="addressType"  minOccurs="0"/>
-          <xsd:element name="customerPhone" type="xsd:integer"  minOccurs="0"/>
-          <xsd:element name="customerMobilePhone" type="xsd:integer"  minOccurs="0"/>
-          <xsd:element name="customerBillingAddress" type="addressType"  minOccurs="0"/>
-          <xsd:element name="fundingEntityBillingInformation" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="fundingType" type="xsd:boolean"  minOccurs="0"/>
-          <xsd:element name="gender" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="caregiverContactInformation" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="customerEmergencyPhoneNumber" type="xsd:integer"  minOccurs="0"/>
-          <xsd:element name="customerEmergencyContactName" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="requiredCareComments" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="dateOfBirth" type="xsd:date"  minOccurs="0"/>
-          <xsd:element name="customerId" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="paymentType" type="paymentTypeList"  minOccurs="0"/>
-          <xsd:element name="notesForDriver" type="xsd:string"  minOccurs="0"/>
-          <xsd:element name="emailAddress" type="xsd:string"  minOccurs="0"/>
+          <xsd:element name="customerInfo" type="customerInfoType" />
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
@@ -254,10 +261,10 @@
           <xsd:element name="customerMobilePhone" type="xsd:integer" minOccurs="0"/>
           <xsd:element name="customerName" type="xsd:string"/>
           <xsd:element name="numOtherReservedPassengers" type="xsd:integer" minOccurs="0"/>
-          </xsd:sequence>
-          <xsd:attribute name="notesForDriver" type="xsd:string" use="optional">
+        </xsd:sequence>
+        <xsd:attribute name="notesForDriver" type="xsd:string" use="optional">
           <xsd:annotation>
-          <xsd:documentation>Free-form long text field for notes to driver concerning customer service needs</xsd:documentation>
+            <xsd:documentation>Free-form long text field for notes to driver concerning customer service needs</xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
         <xsd:attribute name="specialAttributes" type="specialAttributesList" use="optional"/>
@@ -389,9 +396,6 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="telegramMessageType">
-        <xsd:sequence>
-          <xsd:element name="cancellationTime" type="time"/>
-        </xsd:sequence>
         <xsd:attribute name="reason" type="clientTripCancellationReasonEnum">
           <xsd:annotation>
             <xsd:documentation>reason for cancellation</xsd:documentation>
@@ -408,7 +412,6 @@
     <xsd:complexContent>
       <xsd:extension base="telegramMessageType">
         <xsd:sequence>
-          <xsd:element name="cancellationTime" type="time"/>
           <xsd:element name="cancellationApproved" type="xsd:boolean"/>
           <xsd:element name="cancellationRequestOrigin" type="requestOriginEnum"/>
         </xsd:sequence>
@@ -509,7 +512,7 @@
     <xsd:attribute name="mapPage" type="xsd:string" use="optional"/>
     <xsd:attribute name="addressDescription" type="xsd:string" use="optional"/>
   </xsd:complexType>
-  
+
   <xsd:complexType name="geographicLocation">
     <xsd:annotation>
       <xsd:documentation>The coordinates for the address and potentially a known zone</xsd:documentation>
@@ -596,7 +599,7 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:simpleType name="paymentTypeList">  
+  <xsd:simpleType name="paymentTypeList">
     <xsd:list itemType="paymentTypeEnum" />
   </xsd:simpleType>
 
@@ -613,96 +616,96 @@
   </xsd:simpleType>
 
   <xsd:complexType name="idType">
-		<xsd:annotation>
-			<xsd:documentation>General type identification-element</xsd:documentation>
-		</xsd:annotation>
-		<xsd:attribute name="src" use="required">
-			<xsd:simpleType>
-				<xsd:restriction base="xsd:string"/>
-			</xsd:simpleType>
-		</xsd:attribute>
-		<xsd:attribute name="id" use="required">
-			<xsd:simpleType>
-				<xsd:restriction base="xsd:string"/>
-			</xsd:simpleType>
-		</xsd:attribute>
-		<xsd:attribute name="unique" type="xsd:boolean" use="optional" default="true"/>
-	</xsd:complexType>
+    <xsd:annotation>
+      <xsd:documentation>General type identification-element</xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="src" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="id" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string"/>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="unique" type="xsd:boolean" use="optional" default="true"/>
+  </xsd:complexType>
 
-    <xsd:complexType name="manualDescriptionType">
-		<xsd:annotation>
-			<xsd:documentation>Any text aimed for operators, drivers etc</xsd:documentation>
-		</xsd:annotation>
-		<xsd:sequence>
-			<xsd:element name="idActionText" type="idType" minOccurs="0"/>
-			<xsd:element name="textTimestamp" type="time" minOccurs="0"/>
-		</xsd:sequence>
-		<xsd:attribute name="sendtoInvoice" type="xsd:boolean" use="required">
-			<xsd:annotation>
-				<xsd:documentation>True = message shall be sent to invoicing</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="sendtoVehicle" type="xsd:boolean" use="required">
-			<xsd:annotation>
-				<xsd:documentation>True = message shall be sent to vehicle</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="sendtoOperator" type="xsd:boolean" use="required">
-			<xsd:annotation>
-				<xsd:documentation>True = message shall be sent to operator</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="manualText" type="xsd:string" use="required"/>
-		<xsd:attribute name="vehicleConfirmation" type="xsd:boolean" use="required">
-			<xsd:annotation>
-				<xsd:documentation>True = confirmation that the recipient has been notified shall be sent to client.</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="sendingOperator">
-			<xsd:annotation>
-				<xsd:documentation>Attribute to send identity of the operator that has sent this manual text.</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
-
-    <xsd:complexType name="simpleAddress">
+  <xsd:complexType name="manualDescriptionType">
+    <xsd:annotation>
+      <xsd:documentation>Any text aimed for operators, drivers etc</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="idActionText" type="idType" minOccurs="0"/>
+      <xsd:element name="textTimestamp" type="time" minOccurs="0"/>
+    </xsd:sequence>
+    <xsd:attribute name="sendtoInvoice" type="xsd:boolean" use="required">
       <xsd:annotation>
-        <xsd:documentation>Simplified version of Customer Address</xsd:documentation>
+        <xsd:documentation>True = message shall be sent to invoicing</xsd:documentation>
       </xsd:annotation>
-      <xsd:sequence>
-        <xsd:element name="simpleStreetAddress" type="xsd:string" minOccurs="0"/>
-        <xsd:element name="simpleExtendedAddress" type="xsd:string" minOccurs="0"/>
-        <xsd:element name="simpleCity" type="xsd:string" minOccurs="0"/>
-        <xsd:element name="simplePostalCode" type="xsd:string" minOccurs="0"/>
-        <xsd:element name="simpleCounty" type="xsd:string" minOccurs="0"/>
-        <xsd:element name="simpleCountry" type="xsd:string" minOccurs="0"/>
-      </xsd:sequence>
-    </xsd:complexType>
+    </xsd:attribute>
+    <xsd:attribute name="sendtoVehicle" type="xsd:boolean" use="required">
+      <xsd:annotation>
+        <xsd:documentation>True = message shall be sent to vehicle</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="sendtoOperator" type="xsd:boolean" use="required">
+      <xsd:annotation>
+        <xsd:documentation>True = message shall be sent to operator</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="manualText" type="xsd:string" use="required"/>
+    <xsd:attribute name="vehicleConfirmation" type="xsd:boolean" use="required">
+      <xsd:annotation>
+        <xsd:documentation>True = confirmation that the recipient has been notified shall be sent to client.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="sendingOperator">
+      <xsd:annotation>
+        <xsd:documentation>Attribute to send identity of the operator that has sent this manual text.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
 
-	<xsd:complexType name="vehicleDistance">
-		<xsd:sequence>
-			<xsd:element name="startTime" type="time">
-				<xsd:annotation>
-					<xsd:documentation>The time period to propose car starts</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-			<xsd:element name="stopTime" type="time">
-				<xsd:annotation>
-					<xsd:documentation>The time period to propose car stops</xsd:documentation>
-				</xsd:annotation>
-			</xsd:element>
-		</xsd:sequence>
-		<xsd:attribute name="range" type="xsd:int">
-			<xsd:annotation>
-				<xsd:documentation>The distance within which an unoccupied vehicle shall be proposed </xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-		<xsd:attribute name="rangeUnit" type="rangeUnitEnum" use="optional">
-			<xsd:annotation>
-				<xsd:documentation>Type of unit in range.</xsd:documentation>
-			</xsd:annotation>
-		</xsd:attribute>
-	</xsd:complexType>
+  <xsd:complexType name="simpleAddress">
+    <xsd:annotation>
+      <xsd:documentation>Simplified version of Customer Address</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="simpleStreetAddress" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="simpleExtendedAddress" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="simpleCity" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="simplePostalCode" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="simpleCounty" type="xsd:string" minOccurs="0"/>
+      <xsd:element name="simpleCountry" type="xsd:string" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="vehicleDistance">
+    <xsd:sequence>
+      <xsd:element name="startTime" type="time">
+        <xsd:annotation>
+          <xsd:documentation>The time period to propose car starts</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="stopTime" type="time">
+        <xsd:annotation>
+          <xsd:documentation>The time period to propose car stops</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    <xsd:attribute name="range" type="xsd:int">
+      <xsd:annotation>
+        <xsd:documentation>The distance within which an unoccupied vehicle shall be proposed </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="rangeUnit" type="rangeUnitEnum" use="optional">
+      <xsd:annotation>
+        <xsd:documentation>Type of unit in range.</xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
 
   <xsd:complexType name="vehicleDescription">
     <xsd:sequence>
