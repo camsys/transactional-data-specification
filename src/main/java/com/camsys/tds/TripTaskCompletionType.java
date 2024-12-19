@@ -26,7 +26,7 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  *       &lt;sequence&gt;
  *         &lt;element name="cost" type="{http://www.w3.org/2001/XMLSchema}float"/&gt;
  *         &lt;element name="pickupAddress" type="{}addressType" minOccurs="0"/&gt;
- *         &lt;element name="pickupTime" type="{}time"/&gt;
+ *         &lt;element name="pickupTime" type="{}time" minOccurs="0"/&gt;
  *         &lt;element name="dropoffAddress" type="{}addressType" minOccurs="0"/&gt;
  *         &lt;element name="dropoffTime" type="{}time"/&gt;
  *         &lt;element name="scheduledPickupPoint" type="{}addressType" minOccurs="0"/&gt;
@@ -75,7 +75,6 @@ public class TripTaskCompletionType
 
     protected float cost;
     protected AddressType pickupAddress;
-    @XmlElement(required = true)
     protected Time pickupTime;
     protected AddressType dropoffAddress;
     @XmlElement(required = true)
