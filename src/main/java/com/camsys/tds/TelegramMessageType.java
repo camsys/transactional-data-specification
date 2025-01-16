@@ -23,7 +23,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *       &lt;sequence&gt;
  *         &lt;element name="tripRequestId" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="telegramType" type="{}telegramTypeEnum"/&gt;
- *         &lt;element name="timestamp" type="{}time"/&gt;
+ *         &lt;element name="timestamp" type="{}time" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -62,7 +62,6 @@ public class TelegramMessageType {
     @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected TelegramTypeEnum telegramType;
-    @XmlElement(required = true)
     protected Time timestamp;
 
     /**
