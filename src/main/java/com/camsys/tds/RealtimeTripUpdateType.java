@@ -22,7 +22,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *         &lt;element name="driverInfo" type="{}driverDescription"/&gt;
  *         &lt;element name="vehicleInfo" type="{}vehicleDescription"/&gt;
  *         &lt;element name="GPS" type="{}geographicLocation" minOccurs="0"/&gt;
- *         &lt;element name="estimatedArrivalTime" type="{}time" minOccurs="0"/&gt;
+ *         &lt;element name="estimatedTimeOfArrival" type="{}time" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/extension&gt;
  *   &lt;/complexContent&gt;
@@ -36,7 +36,7 @@ import jakarta.xml.bind.annotation.XmlType;
     "driverInfo",
     "vehicleInfo",
     "gps",
-    "estimatedArrivalTime"
+    "estimatedTimeOfArrival"
 })
 public class RealtimeTripUpdateType
     extends TelegramMessageType
@@ -48,7 +48,7 @@ public class RealtimeTripUpdateType
     protected VehicleDescription vehicleInfo;
     @XmlElement(name = "GPS")
     protected GeographicLocation gps;
-    protected Time estimatedArrivalTime;
+    protected Time estimatedTimeOfArrival;
 
     /**
      * Gets the value of the driverInfo property.
@@ -123,27 +123,27 @@ public class RealtimeTripUpdateType
     }
 
     /**
-     * Gets the value of the estimatedArrivalTime property.
+     * Gets the value of the estimatedTimeOfArrival property.
      * 
      * @return
      *     possible object is
      *     {@link Time }
      *     
      */
-    public Time getEstimatedArrivalTime() {
-        return estimatedArrivalTime;
+    public Time getEstimatedTimeOfArrival() {
+        return estimatedTimeOfArrival;
     }
 
     /**
-     * Sets the value of the estimatedArrivalTime property.
+     * Sets the value of the estimatedTimeOfArrival property.
      * 
      * @param value
      *     allowed object is
      *     {@link Time }
      *     
      */
-    public void setEstimatedArrivalTime(Time value) {
-        this.estimatedArrivalTime = value;
+    public void setEstimatedTimeOfArrival(Time value) {
+        this.estimatedTimeOfArrival = value;
     }
 
 }
