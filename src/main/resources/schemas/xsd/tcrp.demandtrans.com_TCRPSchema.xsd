@@ -430,7 +430,7 @@
           <xsd:element name="driverInfo" type="driverDescription" />
           <xsd:element name="vehicleInfo" type="vehicleDescription" />
           <xsd:element name="GPS" type="geographicLocation" minOccurs="0"/>
-          <xsd:element name="estimatedArrivalTime" type="time" minOccurs="0"/>
+          <xsd:element name="estimatedTimeOfArrival" type="time" minOccurs="0"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
