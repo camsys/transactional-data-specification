@@ -518,7 +518,7 @@
       <xsd:documentation>The coordinates for the address and potentially a known zone</xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="typeOfCoordinate" type="typeOfCoordinateEnum">
+      <xsd:element name="typeOfCoordinate" type="typeOfCoordinateEnum" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation>Shall be of type WGS84.</xsd:documentation>
         </xsd:annotation>
