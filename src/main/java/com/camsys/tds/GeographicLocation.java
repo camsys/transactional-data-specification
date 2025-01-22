@@ -24,7 +24,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="typeOfCoordinate" type="{}typeOfCoordinateEnum"/&gt;
+ *         &lt;element name="typeOfCoordinate" type="{}typeOfCoordinateEnum" minOccurs="0"/&gt;
  *         &lt;element name="lat" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *         &lt;element name="long" type="{http://www.w3.org/2001/XMLSchema}double"/&gt;
  *         &lt;element name="vehicleDistance" type="{}vehicleDistance" maxOccurs="unbounded" minOccurs="0"/&gt;
@@ -52,7 +52,6 @@ import jakarta.xml.bind.annotation.XmlType;
 })
 public class GeographicLocation {
 
-    @XmlElement(required = true)
     @XmlSchemaType(name = "string")
     protected TypeOfCoordinateEnum typeOfCoordinate;
     protected double lat;
