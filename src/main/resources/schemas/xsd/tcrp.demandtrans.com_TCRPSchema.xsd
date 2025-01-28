@@ -1099,6 +1099,11 @@
           <xsd:documentation>Client accidentally booked a trip that they no longer want.</xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
+      <xsd:enumeration value="OTHER">
+        <xsd:annotation>
+          <xsd:documentation>Other.</xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
     </xsd:restriction>
   </xsd:simpleType>
 

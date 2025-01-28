@@ -16,6 +16,7 @@ import jakarta.xml.bind.annotation.XmlType;
  *     &lt;enumeration value="CANCEL_AT_DOOR"/&gt;
  *     &lt;enumeration value="NOT_READY"/&gt;
  *     &lt;enumeration value="PROVIDER_ADMIN_CANCEL"/&gt;
+ *     &lt;enumeration value="OTHER"/&gt;
  *   &lt;/restriction&gt;
  * &lt;/simpleType&gt;
  * </pre>
@@ -48,7 +49,13 @@ public enum ProviderTripCancellationReasonEnum {
      * Client accidentally booked a trip that they no longer want.
      * 
      */
-    PROVIDER_ADMIN_CANCEL;
+    PROVIDER_ADMIN_CANCEL,
+
+    /**
+     * Other.
+     * 
+     */
+    OTHER;
 
     public String value() {
         return name();
